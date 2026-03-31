@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {   // extends
 //  - Creates class that implements them, connecting EntityManager
 //  - EntityManager though Hibernate generates SQL, opens connection, do PreparedStatement, ResultSet, commit, rollback
 
-
+//REPOSITORY: CAN BE NULL -> USE OPTIONAL
 
 
 // com.example.demo   ← базовий пакет

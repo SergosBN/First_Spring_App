@@ -13,7 +13,8 @@ public class User {                      // just information
     private String name;
     private String email;
 
-    public User(){}
+    public User() {
+    }
 
     public User(Long id, String name, String email) {
         this.id = id;
@@ -21,23 +22,29 @@ public class User {                      // just information
         this.email = email;
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public String getName(){return name;}
-    public void setName(String name){
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         if (name == null || name.isBlank()) {
             throw new RuntimeException("Name cannot be empty!");
         }
         this.name = name;
     }
 
-    public String getEmail(){return email;}
-    public void setEmail(String email){
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         if (email == null || email.isBlank()) {
             throw new RuntimeException("Email cannot be empty!");
-        } else if (!email.contains("@")){
+        } else if (!email.contains("@")) {
             throw new RuntimeException("Invalid email!");
         }
         this.email = email;
