@@ -1,5 +1,6 @@
 package com.example.springProj.service;
 
+import com.example.springProj.exception.UserNotFoundException;
 import com.example.springProj.model.User;
 import org.springframework.stereotype.Service;
 import com.example.springProj.repository.UserRepository;
@@ -21,7 +22,7 @@ public class UserService {      // logic, works with repo
 
     public User getById(Long id) {
         return userRepository.findById(id)                                     //findById returns OPTIONAL<User>
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 
     public User update(Long id, User updatedUser){            // change
