@@ -1,5 +1,6 @@
 package com.example.springProj.controller;
 
+import com.example.springProj.dto.UserDto;
 import com.example.springProj.model.User;
 import org.springframework.web.bind.annotation.*;
 import com.example.springProj.service.UserService;
@@ -17,8 +18,8 @@ public class UserController {
     }
 
     @PostMapping
-    public User create(@RequestBody User user) {    // returns JSON
-        return userService.create(user);
+    public UserDto create(@RequestBody UserDto dto) {    // returns JSON. DTO → Entity → DB → Entity → DTO
+        return userService.create(dto);
     }
 
     @GetMapping // show (GET/users)

@@ -1,5 +1,6 @@
 package com.example.springProj.service;
 
+import com.example.springProj.dto.UserDto;
 import com.example.springProj.exception.UserNotFoundException;
 import com.example.springProj.model.User;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,10 @@ public class UserService {      // logic, works with repo
         this.userRepository = userRepository;
     }
 
-    public User create(User user) {
-        return userRepository.save(user);
+    public UserDto create(UserDto dto) {
+        User user = toEntity(dto);
+        User saved = userRepository.save(user);
+        return toDto(saved);
     }
 
     public User getById(Long id) {
@@ -25,7 +28,7 @@ public class UserService {      // logic, works with repo
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 
-    public User update(Long id, User updatedUser){            // change
+    public User update(Long id, User updatedUser) {            // change
         User user = getById(id);                              // get id
         user.setName(updatedUser.getName());                  // change name of id person
         user.setEmail(updatedUser.getEmail());                // change email of id person
@@ -41,9 +44,18 @@ public class UserService {      // logic, works with repo
         return userRepository.findAll();
     }
 
+    private UserDto toDto(User user) {
+        return new UserDto(user.getId(), user.getName(), user.getEmail());
+    }
 
+    private User toEntity(UserDto dto) {
+        User user = new User();
+        user.setName(dto.getName());
+        user.setEmail(dto.getEmail());
+        return user;
+    }
 }
 
 
-
+// DTO → Entity → DB → Entity → DTO
 // SERVICE: MUST BE RESULT OR MISTAKE

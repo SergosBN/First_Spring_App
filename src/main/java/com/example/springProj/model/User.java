@@ -4,7 +4,7 @@ import jakarta.persistence.*;   // Entity, Table, Id, GenerateValue, GenerationT
 
 @Entity
 @Table(name = "users")
-public class User {                      // just information
+public class User {                      // just information, works with DB, separate from UserDto
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)   // auto_increment
