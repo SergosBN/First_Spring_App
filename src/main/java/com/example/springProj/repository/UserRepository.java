@@ -16,6 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long> {   // extends
 //REPOSITORY: CAN BE NULL -> USE OPTIONAL
 
 
+
+
 // com.example.demo   ← базовий пакет
 // ├── config        ← конфігурація (поки можна ігнорити)
 // ├── controller    ← REST endpoints (API)
