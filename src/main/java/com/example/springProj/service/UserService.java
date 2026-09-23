@@ -9,7 +9,7 @@ import com.example.springProj.repository.UserRepository;
 import java.util.List;
 
 @Service
-public class UserService {      // logic, works with repo
+public class UserService {
 
     private final UserRepository userRepository;           // connection
 
