@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;           // connection
+    private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -24,19 +24,19 @@ public class UserService {
     }
 
     public User getById(Long id) {
-        return userRepository.findById(id)                                     //findById returns OPTIONAL<User>
+        return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 
-    public User update(Long id, User updatedUser) {            // change
-        User user = getById(id);                              // get id
-        user.setName(updatedUser.getName());                  // change name of id person
-        user.setEmail(updatedUser.getEmail());                // change email of id person
-        return userRepository.save(user);                     // save changes
+    public User update(Long id, User updatedUser) {
+        User user = getById(id);
+        user.setName(updatedUser.getName());
+        user.setEmail(updatedUser.getEmail());
+        return userRepository.save(user);
     }
 
     public void delete(Long id) {
-        User user = getById(id);              // has orElseThrow
+        User user = getById(id);
         userRepository.delete(user);
     }
 
@@ -55,7 +55,3 @@ public class UserService {
         return user;
     }
 }
-
-
-// DTO → Entity → DB → Entity → DTO
-// SERVICE: MUST BE RESULT OR MISTAKE

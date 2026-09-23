@@ -1,13 +1,13 @@
 package com.example.springProj.model;
 
-import jakarta.persistence.*;   // Entity, Table, Id, GenerateValue, GenerationType;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {                      // just information, works with DB, separate from UserDto
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)   // auto_increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

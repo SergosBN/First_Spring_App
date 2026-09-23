@@ -1,6 +1,6 @@
 package com.example.springProj.dto;
 
-public class UserDto {             // API - frontend for client (postman)   No logic here
+public class UserDto {
 
     private Long id;
     private String name;
@@ -34,5 +34,3 @@ public class UserDto {             // API - frontend for client (postman)   No l
         this.email = email;
     }
 }
-
-// Controller ↔ DTO ↔ Service ↔ Entity ↔ Repository ↔ DB

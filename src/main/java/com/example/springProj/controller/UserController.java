@@ -7,7 +7,7 @@ import com.example.springProj.service.UserService;
 
 import java.util.List;
 
-@RestController     // works with http requests, returns JSON, also works with service
+@RestController
 @RequestMapping("/users")
 public class UserController {
 
@@ -18,21 +18,21 @@ public class UserController {
     }
 
     @PostMapping
-    public UserDto create(@RequestBody UserDto dto) {    // returns JSON. DTO → Entity → DB → Entity → DTO
+    public UserDto create(@RequestBody UserDto dto) {
         return userService.create(dto);
     }
 
-    @GetMapping // show (GET/users)
+    @GetMapping
     public List<User> getAll() {
         return userService.getAll();
     }
 
-    @GetMapping("/{id}")    // id = variable
-    public User getById(@PathVariable Long id) {  // Take variable Long id
+    @GetMapping("/{id}")
+    public User getById(@PathVariable Long id) {
         return userService.getById(id);
     }
 
-    @PutMapping("/{id}")   // completely changing the object
+    @PutMapping("/{id}")
     public User update(@PathVariable Long id, @RequestBody User user) {
         return userService.update(id, user);
     }
@@ -42,6 +42,3 @@ public class UserController {
         userService.delete(id);
     }
 }
-
-
-//CONTROLLER: JUST RETURNS THE RESULT OF REQUEST

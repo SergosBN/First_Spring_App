@@ -1,6 +1,6 @@
 package com.example.springProj.exception;
 
-public class ErrorResponse {             // 3. EXCEPTION RESPONSE
+public class ErrorResponse {
 
     private String message;
     private int status;

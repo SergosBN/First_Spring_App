@@ -1,6 +1,6 @@
 package com.example.springProj.exception;
 
-public class UserNotFoundException extends RuntimeException {                 // 1. EXCEPTION
+public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String message) {
         super(message);
     }
